@@ -55,10 +55,10 @@ def main():
     # curs = conn.cursor()
 
     # get transaction status BEFORE
-    get_transaction_status()
+    get_transaction_status(conn)
 
     # get the poll status BEFORE
-    check_poll_status()
+    check_poll_status(conn)
 
     conn.close()
 
