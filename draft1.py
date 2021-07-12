@@ -42,25 +42,32 @@ def get_transaction_status(conn: connect):
 
 
 def main():
-    conn = connect("""
-        host=rc1c-t29vq5k95bcqks94.mdb.yandexcloud.net
-        port=6432
-        dbname=db_alanuccio
-        user=katakato
-        password=k@t@k@tO
-        target_session_attrs=read-write
-        sslmode=verify-full
-    """)
 
-    # curs = conn.cursor()
+    conn = None
 
-    # get transaction status BEFORE
-    get_transaction_status(conn)
+    try:
+        conn = connect("""
+            host=rc1c-t29vq5k95bcqks94.mdb.yandexcloud.net
+            port=6432
+            dbname=db_alanuccio
+            user=katakato
+            password=k@t@k@tO
+            target_session_attrs=read-write
+            sslmode=verify-full
+        """)
 
-    # get the poll status BEFORE
-    check_poll_status(conn)
+        # curs = conn.cursor()
 
-    conn.close()
+        # get the poll status BEFORE
+        check_poll_status(conn)
+
+        # get transaction status BEFORE
+        get_transaction_status(conn)
+    except Exception as e:
+        raise e
+    finally:
+        if conn:
+            conn.close()
 
     # query_str = "SELECT table_name FROM information_schema.tables "\
     #             "WHERE table_schema = 'public'"
