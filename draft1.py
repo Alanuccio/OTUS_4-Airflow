@@ -13,7 +13,14 @@ def main():
         sslmode=verify-full
     """)
 
-    print(conn.version)
+    curs = conn.cursor()
+
+    query_str = "SELECT * FROM bitcoin_course"
+
+    result = curs.execute(query_str)
+
+    for n, row in enumerate(result.fetchall(), 1):
+        print(f'{n}: {row}')
 # End main
 
 
