@@ -16,7 +16,7 @@ def main():
     curs = conn.cursor()
 
     query_str = "SELECT table_name FROM information_schema.tables "\
-                "WHERE table_schema = 'public"
+                "WHERE table_schema = 'public'"
 
     result = curs.execute(query_str)
 
