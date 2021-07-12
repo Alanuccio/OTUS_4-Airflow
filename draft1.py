@@ -1,4 +1,5 @@
 from time import time
+from os import environ
 from psycopg2 import extensions, connect, InterfaceError
 
 
@@ -47,11 +48,11 @@ def main():
 
     try:
         conn = connect("""
-            host=rc1c-t29vq5k95bcqks94.mdb.yandexcloud.net
+            host=asd
             port=6432
-            dbname=db_alanuccio
-            user=katakato
-            password=k@t@k@tO
+            dbname=dsa
+            user=asd
+            password=dsa
             target_session_attrs=read-write
             sslmode=verify-full
         """)
