@@ -8,7 +8,7 @@ def main():
         port=6432
         dbname=db_alanuccio
         user=katakato
-        password=<password>
+        password=k@t@k@tO
         target_session_attrs=read-write
         sslmode=verify-full
     """)
