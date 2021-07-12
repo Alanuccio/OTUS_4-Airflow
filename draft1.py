@@ -15,12 +15,15 @@ def main():
 
     curs = conn.cursor()
 
-    query_str = "SELECT * FROM bitcoin_course"
+    query_str = "SELECT * FROM public.bitcoin_course"
 
     result = curs.execute(query_str)
 
-    for n, row in enumerate(result.fetchall(), 1):
-        print(f'{n}: {row}')
+    if result:
+        for n, row in enumerate(result.fetchall(), 1):
+            print(f'{n}: {row}')
+    else:
+        print('Nothing to print')
 # End main
 
 
