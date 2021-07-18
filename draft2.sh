@@ -3,7 +3,7 @@ json_inc=$(curl --location --request GET 'api.coincap.io/v2/rates/bitcoin');
 
 coincap_id=$(echo "$json_inc" | jq -r ".data.id");
 coincap_symbol=$(echo "$json_inc" | jq -r ".data.symbol");
-coincap_currentSymbol=$(echo "$json_inc" | jq -r ".data.currentSymbol");
+coincap_currentSymbol=$(echo "$json_inc" | jq -r ".data.currencySymbol");
 coincap_type=$(echo "$json_inc" | jq -r ".data.type");
 coincap_rateUsd=$(echo "$json_inc" | jq -r ".data.rateUsd");
 coincap_timestamp=$(echo "$json_inc" | jq -r ".timestamp");
