@@ -12,4 +12,6 @@ coincap_timestamp=$(echo "$json_inc" | jq -r ".timestamp");
 
 query_ins="INSERT INTO public.bitcoin_course (id, symbol, currencysymbol, type, rateusd, timestamp) VALUES ('$coincap_id', '$coincap_symbol', '$coincap_currentSymbol', '$coincap_type', '$coincap_rateUsd', $coincap_timestamp);"
 
-echo $query_ins;
+# echo $query_ins;
+
+PGPASSWORD=$PSQL_PASSWORD psql -h $PSQL_HOST -p 6432 -d $PSQL_DBNAME -U $PSQL_USER -q -c $query_ins;
