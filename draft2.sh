@@ -14,4 +14,4 @@ query_ins="INSERT INTO public.bitcoin_course (id, symbol, currencysymbol, type, 
 
 # echo $query_ins;
 
-PGPASSWORD=$PSQL_PASSWORD psql -h $PSQL_HOST -p 6432 -d $PSQL_DBNAME -U $PSQL_USER -q -c $query_ins;
+PGPASSWORD=$PSQL_PASSWORD psql -h $PSQL_HOST -p 6432 -d $PSQL_DBNAME -U $PSQL_USER -q -c "$query_ins";
